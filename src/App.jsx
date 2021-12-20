@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Door from './components/Door';
 import OpenDoor from './components/OpenDoor';
-import { Modal, Button } from '@mantine/core';
+import { Modal } from '@mantine/core';
 import Hint from './components/Hint';
 
 const car = Math.floor(Math.random() * 3) + 1; // araba
@@ -10,21 +10,24 @@ const App = () => {
 	const [isOpenSecond, setIsOpenSecond] = useState(false);
 	const [isOpenThird, setIsOpenThird] = useState(false);
 	const [opened, setOpened] = useState(false);
-	const [choosenNumber, setChoosenNumber] = useState(null);
 	const [disableButton, setDisableButton] = useState(false);
-	const [disableDoor, setDisableDoor] = useState(true);
+	const [choosenNumber, setChoosenNumber] = useState(null);
 	const [openedHint, setOpenedHint] = useState(false);
+	const [disableDoor, setDisableDoor] = useState(true);
 
 	let numbers = [1, 2, 3];
 
 	const handleDoorClickFirst = () => {
 		setIsOpenFirst(!isOpenFirst);
+		setDisableDoor(true);
 	};
 	const handleDoorClickSecond = () => {
 		setIsOpenSecond(!isOpenSecond);
+		setDisableDoor(true);
 	};
 	const handleDoorClickThird = () => {
 		setIsOpenThird(!isOpenThird);
+		setDisableDoor(true);
 	};
 
 	const handleNumberButtonClick = (e) => {

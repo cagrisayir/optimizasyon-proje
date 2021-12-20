@@ -3,6 +3,7 @@ import openDoor from '../images/open-door.png';
 import goat from '../images/goat.png';
 import car from '../images/car.png';
 import { Image } from '@mantine/core';
+import Celebration from './Celebration';
 
 const OpenDoor = ({ image }) => {
 	return (
@@ -14,6 +15,7 @@ const OpenDoor = ({ image }) => {
 				alt='inside'
 				height={30}
 			/>
+			{image === 'car' ? <Celebration /> : ''}
 		</div>
 	);
 };
