@@ -11,6 +11,7 @@ const App = () => {
 	const [opened, setOpened] = useState(false);
 	const [choosenNumber, setChoosenNumber] = useState(null);
 	const [disableButton, setDisableButton] = useState(false);
+	const [disableDoor, setDisableDoor] = useState(true);
 
 	let numbers = [1, 2, 3];
 
@@ -92,11 +93,18 @@ const App = () => {
 					</button>
 				</div>
 			</Modal>
-			<Button onClick={() => setOpened(true)} disabled={disableButton}>
+			<Button
+				onClick={() => {
+					setOpened(true);
+					setDisableDoor(false);
+				}}
+				disabled={disableButton}
+			>
 				Oyuna Başla
 			</Button>
 			<div className='flex flex-row'>
 				<button
+					disabled={disableDoor}
 					className='flex flex-col justify-center items-center'
 					onClick={handleDoorClickFirst}
 				>
@@ -110,6 +118,7 @@ const App = () => {
 					</p>
 				</button>
 				<button
+					disabled={disableDoor}
 					className='flex flex-col justify-center items-center'
 					onClick={handleDoorClickSecond}
 				>
@@ -123,6 +132,7 @@ const App = () => {
 					</p>
 				</button>
 				<button
+					disabled={disableDoor}
 					className='flex flex-col justify-center items-center'
 					onClick={handleDoorClickThird}
 				>
