@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Door from './components/Door';
 import OpenDoor from './components/OpenDoor';
 import { Modal, Button } from '@mantine/core';
+import Hint from './components/Hint';
 
 const car = Math.floor(Math.random() * 3) + 1; // araba
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
 	const [choosenNumber, setChoosenNumber] = useState(null);
 	const [disableButton, setDisableButton] = useState(false);
 	const [disableDoor, setDisableDoor] = useState(true);
+	const [openedHint, setOpenedHint] = useState(false);
 
 	let numbers = [1, 2, 3];
 
@@ -93,7 +95,8 @@ const App = () => {
 					</button>
 				</div>
 			</Modal>
-			<Button
+			<button
+				className='py-2 px-4 text-white bg-blue-400 rounded-lg disabled:bg-gray-300 disabled:text-gray-500'
 				onClick={() => {
 					setOpened(true);
 					setDisableDoor(false);
@@ -101,7 +104,7 @@ const App = () => {
 				disabled={disableButton}
 			>
 				Oyuna Başla
-			</Button>
+			</button>
 			<div className='flex flex-row'>
 				<button
 					disabled={disableDoor}
@@ -146,6 +149,23 @@ const App = () => {
 					</p>
 				</button>
 			</div>
+			<Modal
+				opened={openedHint}
+				title='İpucu'
+				onClose={() => setOpenedHint(false)}
+			>
+				<Hint />
+			</Modal>
+			<button
+				onClick={() => setOpenedHint(true)}
+				className={
+					!disableButton
+						? 'hidden'
+						: 'p-4 text-white bg-indigo-500 rounded-xl'
+				}
+			>
+				İpucu!
+			</button>
 		</div>
 	);
 };
