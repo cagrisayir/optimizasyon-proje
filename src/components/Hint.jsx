@@ -9,7 +9,7 @@ const Hint = () => {
 				edersen kazanma şansın %33 olacaktır.
 			</p>
 			<p>
-				Ama eğer kararını değiştirirsen şansın %50 olacak! Karar senin.
+				Ama eğer kararını değiştirirsen şansın %66 olacak! Karar senin.
 			</p>
 		</div>
 	);
